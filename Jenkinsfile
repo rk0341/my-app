@@ -15,6 +15,9 @@ pipeline {
     }
   }
   post {
+    success {
+        archiveArtifacts artifacts: 'target/*.war'
+        }
         // Clean after build
         always {
             cleanWs(cleanWhenNotBuilt: false,
